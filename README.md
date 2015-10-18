@@ -1,4 +1,4 @@
-## PHP dockerfile
+## PHP FPM Dockerfile
 This repository contains **Dockerfile** of PHP5-FPM Docker's [automated build](https://hub.docker.com/r/xaamin/php-fpm)
 
 ### Base docker image
