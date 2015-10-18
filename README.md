@@ -9,7 +9,7 @@ This repository contains **Dockerfile** of PHP5-FPM Docker's [automated build](h
 * Pull from [Docker Hub](https://hub.docker.com/r/xaamin/php-fpm) `docker pull xaamin/php-fpm`
 
 ### Manual build
-* Build an image from Dockerfile `docker build -t xaamin/php-fpm https://github.com/xaamin/ubuntu-php-fpm.git`
+* Build an image from Dockerfile `docker build -t xaamin/php-fpm https://github.com/xaamin/php-fpm.git`
 
 ### Volumes
 You must provide a volume mounted on /data containing all files to serve
