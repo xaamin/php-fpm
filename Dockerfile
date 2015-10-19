@@ -28,10 +28,7 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = $\(DATE_TIMEZONE\)/" /etc/php5/
     sed -i "s/^listen =.*/listen = 0.0.0.0:9000/" /etc/php5/fpm/pool.d/www.conf && \    
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 30M/" /etc/php5/fpm/php.ini && \
     sed -i "s/^[;]\?listen.allowed_clients =.*/;listen.allowed_clients =/" /etc/php5/fpm/pool.d/www.conf && \
-    sed -i "s/^[;]\?access.log = .*/access.log = \/data\/logs\/$pool.access.log/" /etc/php5/fpm/pool.d/www.conf && \
     sed -i "s/^[;]\?catch_workers_output =.*/catch_workers_output = yes/" /etc/php5/fpm/pool.d/www.conf && \
-    sed -i "s/php_admin_flag\[log_errors\] =.*/php_admin_flag\[log_errors\] = on/" /etc/php5/fpm/pool.d/www.conf && \
-    sed -i "s/php_admin_value\[error_log\] =.*/php_admin_value\[error_log\] = \/data\/logs\/php-fpm.www.log/" /etc/php5/fpm/pool.d/www.conf && \
     sed -i "s/;pm.status_path =.*/pm.status_path = \/status/" /etc/php5/fpm/pool.d/www.conf 
 
 RUN echo "php_admin_value[display_errors] = stderr" >> /etc/php5/fpm/pool.d/www.conf
