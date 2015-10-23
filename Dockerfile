@@ -42,7 +42,7 @@ ENV DATE_TIMEZONE America/Mexico_City
 # does not stop script execution for some reason. A value of '0' means 'off'.
 # Available units: s(econds)(default), m(inutes), h(ours), or d(ays)
 # (www.conf)
-ENV REQUEST_TIMEOUT 30
+ENV REQUEST_TIMEOUT 60
 
 # Maximum amount of time each script may spend parsing request data. It's a good
 # idea to limit this time on productions servers in order to eliminate unexpectedly
