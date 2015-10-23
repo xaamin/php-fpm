@@ -27,11 +27,10 @@ RUN sed -i 's/;\?date.timezone =.*/date.timezone = ${DATE_TIMEZONE}/' /etc/php5/
     && sed -i 's/;\?cgi.fix_pathinfo =.*/cgi.fix_pathinfo = 0/' /etc/php5/fpm/php.ini \
     && sed -i 's/short_open_tag =.*/short_open_tag = On/' /etc/php5/fpm/php.ini \
     && sed -i 's/;\?daemonize =.*/daemonize = no/' /etc/php5/fpm/php-fpm.conf \
-    && sed -i 's/^listen =.*/listen = 0.0.0.0:9000/' /etc/php5/fpm/pool.d/www.conf \    
-    && sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 30M/' /etc/php5/fpm/php.ini \
+    && sed -i 's/;\?listen =.*/listen = 0.0.0.0:9000/' /etc/php5/fpm/pool.d/www.conf \
+    && sed -i 's/;\?pm.status_path =.*/pm.status_path = \/status/' /etc/php5/fpm/pool.d/www.conf \
     && sed -i 's/;\?listen.allowed_clients =.*/;listen.allowed_clients =/' /etc/php5/fpm/pool.d/www.conf \
-    && sed -i 's/;\?catch_workers_output =.*/catch_workers_output = yes/' /etc/php5/fpm/pool.d/www.conf \
-    && sed -i 's/;\?pm.status_path =.*/pm.status_path = \/status/' /etc/php5/fpm/pool.d/www.conf 
+    && sed -i 's/;\?catch_workers_output =.*/catch_workers_output = yes/' /etc/php5/fpm/pool.d/www.conf 
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
