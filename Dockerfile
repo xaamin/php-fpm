@@ -53,7 +53,7 @@ ENV MAX_INPUT_TIME 60
 ENV MEMORY_LIMIT 128M
 
 # Maximum allowed size for uploaded files.
-ENV POST_MAX_SIZE 30MB
+ENV POST_MAX_SIZE 30M
 
 # Add supervisor config file
 ADD supervisord.conf /etc/supervisor/supervisord.conf
