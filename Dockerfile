@@ -56,11 +56,14 @@ ENV POST_MAX_SIZE 30M
 # Add supervisor config file
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
+# Add bootstrap file
+ADD start.sh /start.sh
+
 # Define mountable directories
 VOLUME ["/shared"]
 
 # Port 9000 is how Nginx will communicate with PHP-FPM.
 EXPOSE 9000
 
-# Run PHP-FPM through Supervisor.
-CMD ["/usr/bin/supervisord", "-n"]
+# Define default command.
+CMD ["/bin/bash", "/start.sh"]
