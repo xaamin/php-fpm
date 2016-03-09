@@ -11,4 +11,6 @@ if [[ ! -d "$LOGS" ]]; then
 	echo ""
 fi
 
+sed -i 's|error_log =.*|error_log = /shared/logs/'${LOG_ALIAS:=$(hostname)}'.fpm.error.log|' /etc/php5/fpm/php-fpm.conf
+
 /usr/bin/supervisord -n
