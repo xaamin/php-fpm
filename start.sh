@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS="/shared/logs"
+LOGS="/shared/accounts/${ACCOUNT:=$(hostname)}/logs"
 
 # Create logs directory
 if [[ ! -d "$LOGS" ]]; then
