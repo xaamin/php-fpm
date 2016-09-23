@@ -5,6 +5,7 @@ MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 # Install PHP-FPM
 RUN apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        --no-install-recommends \
         php7.0-fpm \
         libfcgi0ldbl \
 
