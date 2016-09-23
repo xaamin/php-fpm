@@ -1,6 +1,6 @@
-FROM xaamin/php-cli
+FROM xaamin/php-cli:7.0
 
-MAINTAINER "Benjamín Martínez Mateos" <bmxamin@gmail.com>
+MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 
 # Install PHP-FPM
 RUN apt-get -y update \
