@@ -19,6 +19,4 @@ if [[ ! -d "$PHPPID" ]]; then
 	mkdir "$PHPPID"
 fi
 
-sed -i 's|error_log =.*|error_log = /shared/'${ACCOUNT:=$(hostname)}'/logs/php5.6-fpm.error.log|' /etc/php/5.6/fpm/php-fpm.conf
-
-/usr/bin/supervisord -n
+sed -i 's|error_log =.*|error_log = /shared/'${ACCOUNT:=$(hostname)}'/logs/php7.0-fpm.error.log|' /etc/php/7.0/fpm/php-fpm.conf
