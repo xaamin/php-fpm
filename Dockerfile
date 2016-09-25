@@ -1,4 +1,4 @@
-FROM xaamin/php-cli:5.6-ubuntu14.04
+FROM xaamin/php-cli:5.6
 
 MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 
