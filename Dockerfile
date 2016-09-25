@@ -5,7 +5,6 @@ MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 # Install PHP-FPM
 RUN apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        --no-install-recommends \
         php5.6-fpm \
         libfcgi0ldbl \
 
@@ -58,7 +57,7 @@ ENV POST_MAX_SIZE 30M
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 # Add bootstrap file
-ADD start.sh /start.sh
+ADD root/.scripts /root/.scripts
 
 # Define mountable directories
 VOLUME ["/shared"]
@@ -67,4 +66,4 @@ VOLUME ["/shared"]
 EXPOSE 9000
 
 # Define default command.
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "/root/.scripts/bootstrap.sh"]
