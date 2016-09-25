@@ -1,4 +1,4 @@
-FROM xaamin/php-cli:7.0
+FROM xaamin/php-cli:5.6-ubuntu14.04
 
 MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 
@@ -6,7 +6,7 @@ MAINTAINER "Benjamín Martínez Mateos" <xaamin@outlook.com>
 RUN apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         --no-install-recommends \
-        php7.0-fpm \
+        php5.6-fpm \
         libfcgi0ldbl \
 
     # Remove temp files
@@ -15,21 +15,21 @@ RUN apt-get -y update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Configure and secure PHP
-RUN sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/7.0/cli/php.ini \
-    && sed -i 's|max_execution_time =.*|max_execution_time = ${REQUEST_TIMEOUT}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|;\?request_terminate_timeout =.*|request_terminate_timeout = ${REQUEST_TIMEOUT}|' /etc/php/7.0/fpm/pool.d/www.conf \
-    && sed -i 's|max_input_time =.*|max_input_time = ${MAX_INPUT_TIME}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|memory_limit =.*|memory_limit = ${MEMORY_LIMIT}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|upload_max_filesize =.*|upload_max_filesize = ${POST_MAX_SIZE}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|post_max_size =.*|post_max_size = ${POST_MAX_SIZE}|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|;\?cgi.fix_pathinfo =.*|cgi.fix_pathinfo = 0|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|short_open_tag =.*|short_open_tag = On|' /etc/php/7.0/fpm/php.ini \
-    && sed -i 's|;\?daemonize =.*|daemonize = no|' /etc/php/7.0/fpm/php-fpm.conf \
-    && sed -i 's|;\?listen =.*|listen = 0.0.0.0:9000|' /etc/php/7.0/fpm/pool.d/www.conf \
-    && sed -i 's|;\?pm.status_path =.*|pm.status_path = /status|' /etc/php/7.0/fpm/pool.d/www.conf \
-    && sed -i 's|;\?listen.allowed_clients =.*|;listen.allowed_clients =|' /etc/php/7.0/fpm/pool.d/www.conf \
-    && sed -i 's|;\?catch_workers_output =.*|catch_workers_output = yes|' /etc/php/7.0/fpm/pool.d/www.conf 
+RUN sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|;\?date.timezone =.*|date.timezone = ${DATE_TIMEZONE}|' /etc/php/5.6/cli/php.ini \
+    && sed -i 's|max_execution_time =.*|max_execution_time = ${REQUEST_TIMEOUT}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|;\?request_terminate_timeout =.*|request_terminate_timeout = ${REQUEST_TIMEOUT}|' /etc/php/5.6/fpm/pool.d/www.conf \
+    && sed -i 's|max_input_time =.*|max_input_time = ${MAX_INPUT_TIME}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|memory_limit =.*|memory_limit = ${MEMORY_LIMIT}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|upload_max_filesize =.*|upload_max_filesize = ${POST_MAX_SIZE}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|post_max_size =.*|post_max_size = ${POST_MAX_SIZE}|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|;\?cgi.fix_pathinfo =.*|cgi.fix_pathinfo = 0|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|short_open_tag =.*|short_open_tag = On|' /etc/php/5.6/fpm/php.ini \
+    && sed -i 's|;\?daemonize =.*|daemonize = no|' /etc/php/5.6/fpm/php-fpm.conf \
+    && sed -i 's|;\?listen =.*|listen = 0.0.0.0:9000|' /etc/php/5.6/fpm/pool.d/www.conf \
+    && sed -i 's|;\?pm.status_path =.*|pm.status_path = /status|' /etc/php/5.6/fpm/pool.d/www.conf \
+    && sed -i 's|;\?listen.allowed_clients =.*|;listen.allowed_clients =|' /etc/php/5.6/fpm/pool.d/www.conf \
+    && sed -i 's|;\?catch_workers_output =.*|catch_workers_output = yes|' /etc/php/5.6/fpm/pool.d/www.conf 
 
 # Defines the default timezone used by the date functions
 ENV DATE_TIMEZONE America/Mexico_City
