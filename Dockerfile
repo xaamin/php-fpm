@@ -58,7 +58,7 @@ ENV POST_MAX_SIZE 30M
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 # Add bootstrap file
-ADD start.sh /start.sh
+ADD root/.scripts /root/.scripts
 
 # Define mountable directories
 VOLUME ["/shared"]
@@ -67,4 +67,4 @@ VOLUME ["/shared"]
 EXPOSE 9000
 
 # Define default command.
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "/root/.scripts/bootstrap.sh"]
