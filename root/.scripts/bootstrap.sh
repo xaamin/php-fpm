@@ -35,6 +35,6 @@ else
     echo "Permissions fixes was done previously. Run the  apply-permissions.sh script after delete the permission-fixes.lock file"
 fi
 
-sed -i 's|error_log =.*|error_log = /shared/'${ACCOUNT:=$(hostname)}'/logs/php7.0-fpm.error.log|' /etc/php/7.0/fpm/php-fpm.conf || true
+sed -i 's|error_log =.*|error_log = /shared/web/'${ACCOUNT:=$(hostname)}'/logs/php7.0-fpm.error.log|' /etc/php/7.0/fpm/php-fpm.conf || true
 
 /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
