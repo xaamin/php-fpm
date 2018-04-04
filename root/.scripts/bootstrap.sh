@@ -36,6 +36,6 @@ else
     echo ""
 fi
 
-sed -i 's|error_log =.*|error_log = /shared/'${ACCOUNT:=$(hostname)}'/logs/php7.1-fpm.error.log|' /etc/php/7.1/fpm/php-fpm.conf || true
+sed -i 's|error_log =.*|error_log = /shared/web/'${ACCOUNT:=$(hostname)}'/logs/php7.1-fpm.error.log|' /etc/php/7.1/fpm/php-fpm.conf || true
 
 /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
