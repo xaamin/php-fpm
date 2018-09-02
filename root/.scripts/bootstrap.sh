@@ -36,6 +36,7 @@ else
     echo ""
 fi
 
-sed -i 's|error_log =.*|error_log = '${LOGS}'/php_error.log|' /etc/php/7.1/fpm/php-fpm.conf || true
+sed -i 's|error_log =.*|error_log = '${LOGS}'/php-fpm.log|' /etc/php/7.1/fpm/php-fpm.conf || true
+sed -i 's|;\?php_admin_value\[error_log\] =.*|php_admin_value\[error_log\] = '${LOGS}'/php-fpm.www.log|' /etc/php/7.1/fpm/pool.d/www.conf || true
 
 /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
