@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS="${SHARED_VOLUME}/shared/server/log/${ACCOUNT:=$(hostname)}"
+LOGS="${SHARED_VOLUME}/server/log/${ACCOUNT:=$(hostname)}"
 PHPPID="/run/php"
 
 # Create log directory
