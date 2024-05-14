@@ -1,5 +1,5 @@
 ARG tz='UTC'
-ARG php_version='8.2'
+ARG php_version='8.3'
 
 FROM xaamin/php-cli:$php_version
 LABEL maintainer="Benjamín Martínez Mateos <xaamin@outlook.com>"
@@ -27,11 +27,11 @@ ENV REQUEST_TIMEOUT 60
 # long running scripts.
 ENV MAX_INPUT_TIME 60
 
-# Maximum amount of memory a script may consume (128MB)
-ENV MEMORY_LIMIT 128M
+# Maximum amount of memory a script may consume (64MB)
+ENV MEMORY_LIMIT 64M
 
 # Maximum allowed size for uploaded files.
-ENV POST_MAX_SIZE 30M
+ENV POST_MAX_SIZE 5M
 
 # Add supervisor config file
 ADD supervisord.conf /etc/supervisor/supervisord.conf
